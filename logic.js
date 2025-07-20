@@ -1,5 +1,7 @@
 console.log("Hello, from the javascript file");
 const prompt = require("prompt-sync")();
+
+
 function getComputerChoice(){
     let choice= Math.random();      //Will return a value greater than or equal to 0 and less than 1
 
@@ -14,12 +16,22 @@ function getComputerChoice(){
     return "Scissors";
 }
 
-function getHumanChoice(choice ="Invalid Answer"){
-    choice =prompt("Please enter a valid choice (1 for Rock, 2 for Paper, or 3 for Scissors): ");
+function getHumanChoice(){
+    let choice =prompt("Please enter a valid choice (Rock, Paper, Scissors): ");
 
-    console.log(choice);
+    if(choice.toLowerCase("rock")=== "rock"){
+        return "rock"
+    }
+    else if(choice.toLowerCase("paper")=== "paper"){
+        return "paper";
+    }
+    else if(choice.toLowerCase("scissors")=== "scissors"){
+        return "scissors";
+    }
 
-    return choice;
+    //console.log(choice);
+
+
+    return "Invalid Choice";
 }
-
-getHumanChoice();
+console.log(getHumanChoice());
