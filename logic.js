@@ -1,5 +1,3 @@
-console.log("Hello, from the javascript file");
-
 let humanScore=0;
 let computerScore= 0;
 
@@ -18,7 +16,7 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
-    const prompt = require("prompt-sync")();
+    //const prompt = require("prompt-sync")();
     let choice =prompt("Please enter a valid choice (Rock, Paper, Scissors): ");
 
     if(choice.toLowerCase("rock")=== "rock"){
@@ -34,25 +32,39 @@ function getHumanChoice(){
     return "Invalid Choice";
 }
 
-function playground(humanChoice, computerChoice){
+function playRound(humanChoice, computerChoice){
     if(humanChoice===computerChoice){
-        return `It's a draw both player chose ${humanChoice.toUpperCase()}.`;
+        return `It's a draw both player chose ${humanChoice.toUpperCase()}!\n`;
     }
     else if(humanChoice=== "Invalid Choice"){
         computerScore++;
-        return `Player entered an invalid choice. You Lose!`;
+        return `Player entered an invalid choice. You Lose!\n`;
     }
     else if((humanChoice=== "rock" && computerChoice== "scissors") || 
             (humanChoice=== "paper" && computerChoice== "rock") || 
             (humanChoice=== "scissors" && computerChoice== "paper")){
         humanScore ++;
-        return `You win ${humanChoice.toUpperCase()} beats ${computerChoice.toUpperCase()}!`;
+        return `You win ${humanChoice.toUpperCase()} beats ${computerChoice.toUpperCase()}!\n`;
     }
     else{
         computerScore++;
-        return `You lose ${computerChoice.toUpperCase()} beats ${humanChoice.toUpperCase()}!`;
+        return `You lose ${computerChoice.toUpperCase()} beats ${humanChoice.toUpperCase()}!\n`;
     }
 }
 
 
-console.log(playground(getHumanChoice(),getComputerChoice()));
+function playGame(){
+    let numberOfRound=5;
+    for(let i=0; i< numberOfRound; i++){
+        console.log(playRound(getHumanChoice(), getComputerChoice()));
+    }
+
+    console.log("Final Results: \n");
+
+    console.log(`After ${numberOfRound} round.`);
+    console.log("Human Scored: " + humanScore);
+    console.log("Computer Score: "+ computerScore);
+    console.log(`Draws/ Ties: ${numberOfRound- humanScore- computerScore}`);
+}
+
+playGame();
