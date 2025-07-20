@@ -1,6 +1,7 @@
 console.log("Hello, from the javascript file");
-const prompt = require("prompt-sync")();
 
+let humanScore=0;
+let computerScore= 0;
 
 function getComputerChoice(){
     let choice= Math.random();      //Will return a value greater than or equal to 0 and less than 1
@@ -8,15 +9,16 @@ function getComputerChoice(){
     //console.log(`The value of choice ${choice}`);
 
     if(choice <(1/3)){
-        return "Rock";
+        return "rock";
     }
     else if(choice>= (1/3) && choice< (2/3)){
-        return "Paper";
+        return "paper";
     }
-    return "Scissors";
+    return "scissors";
 }
 
 function getHumanChoice(){
+    const prompt = require("prompt-sync")();
     let choice =prompt("Please enter a valid choice (Rock, Paper, Scissors): ");
 
     if(choice.toLowerCase("rock")=== "rock"){
@@ -28,10 +30,29 @@ function getHumanChoice(){
     else if(choice.toLowerCase("scissors")=== "scissors"){
         return "scissors";
     }
-
     //console.log(choice);
-
-
     return "Invalid Choice";
 }
-console.log(getHumanChoice());
+
+function playground(humanChoice, computerChoice){
+    if(humanChoice===computerChoice){
+        return `It's a draw both player chose ${humanChoice.toUpperCase()}.`;
+    }
+    else if(humanChoice=== "Invalid Choice"){
+        computerScore++;
+        return `Player entered an invalid choice. You Lose!`;
+    }
+    else if((humanChoice=== "rock" && computerChoice== "scissors") || 
+            (humanChoice=== "paper" && computerChoice== "rock") || 
+            (humanChoice=== "scissors" && computerChoice== "paper")){
+        humanScore ++;
+        return `You win ${humanChoice.toUpperCase()} beats ${computerChoice.toUpperCase()}!`;
+    }
+    else{
+        computerScore++;
+        return `You lose ${computerChoice.toUpperCase()} beats ${humanChoice.toUpperCase()}!`;
+    }
+}
+
+
+console.log(playground(getHumanChoice(),getComputerChoice()));
