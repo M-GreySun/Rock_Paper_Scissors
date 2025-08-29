@@ -1,0 +1,13 @@
+button{
+    font: 400px;
+    background-color: rgb(25, 38, 123);
+    color: whitesmoke;
+    padding: 20px;
+    margin: 100px;
+    border-radius: 10px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}

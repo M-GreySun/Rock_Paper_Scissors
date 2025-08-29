@@ -33,6 +33,7 @@ function getHumanChoice(){
 }
 
 function playRound(humanChoice, computerChoice){
+    console.log(`Human Choice: ${humanChoice}`);
     if(humanChoice===computerChoice){
         return `It's a draw both player chose ${humanChoice.toUpperCase()}!\n`;
     }
@@ -44,27 +45,35 @@ function playRound(humanChoice, computerChoice){
             (humanChoice=== "paper" && computerChoice== "rock") || 
             (humanChoice=== "scissors" && computerChoice== "paper")){
         humanScore ++;
-        return `You win ${humanChoice.toUpperCase()} beats ${computerChoice.toUpperCase()}!\n`;
+        return `You win ${humanChoice} beats ${computerChoice.toUpperCase()}!\n`;
     }
     else{
         computerScore++;
-        return `You lose ${computerChoice.toUpperCase()} beats ${humanChoice.toUpperCase()}!\n`;
+        return `You lose ${computerChoice.toUpperCase()} beats ${humanChoice}!\n`;
     }
 }
 
 
 function playGame(){
-    let numberOfRound=5;
-    for(let i=0; i< numberOfRound; i++){
+    //let numberOfRound=5;
+    //for(let i=0; i< numberOfRound; i++){
         console.log(playRound(getHumanChoice(), getComputerChoice()));
-    }
+    //}
 
     console.log("Final Results: \n");
 
-    console.log(`After ${numberOfRound} round.`);
+    //console.log(`After ${numberOfRound} round.`);
     console.log("Human Scored: " + humanScore);
     console.log("Computer Score: "+ computerScore);
-    console.log(`Draws/ Ties: ${numberOfRound- humanScore- computerScore}`);
+    //console.log(`Draws/ Ties: ${numberOfRound- humanScore- computerScore}`);
 }
 
-playGame();
+let button= document.querySelectorAll("button");
+button.forEach((ele)=>{
+    ele.addEventListener("click", () => {
+        playRound(ele.id, getComputerChoice());
+    });        
+});
+
+
+//playGame();
