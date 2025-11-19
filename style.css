@@ -1,3 +1,10 @@
+body{
+    box-sizing: border-box; 
+    padding: 0px;
+    margin: 0px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
 button{
     font: 400px;
     background-color: rgb(25, 38, 123);
@@ -11,9 +18,28 @@ button{
     display: flex;
     justify-content: center;
 }
+#playerScore, #compScore{
+
+}
 
 .score{
-    gap: 100px;
+    border: double pink 5px;
+    gap:50px
+}
+#scoreValue, #scoreCard{
+    border: double blue 10px;
+    font-family: Impact;
+    font-size: 60px;
+    color:rgb(212, 168, 8);
+    width: 200px;
+    text-align: center;
+}
+#scoreCard{
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    align-items: center;
+    color:rgba(137, 43, 226, 0.96);
 }
 .final{
     display: flex;
