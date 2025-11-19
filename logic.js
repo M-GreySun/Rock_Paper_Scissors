@@ -94,7 +94,7 @@ function finalResults(){
 
 }
 
-let button= document.querySelectorAll("button");
+let button= document.querySelectorAll(".container button");
 button.forEach((ele)=>{
     ele.addEventListener("click", () => {
         playRound(ele.id, getComputerChoice());

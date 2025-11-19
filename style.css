@@ -15,3 +15,10 @@ button{
 .score{
     gap: 100px;
 }
+.final{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    border: double green 5px;
+}
