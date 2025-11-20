@@ -1,10 +1,10 @@
-let humanScore=0;
-let computerScore= 0;
+let player=0;
+let AI= 0;
 let tie=0;
 
 let numberOfRounds=5;
 
-function getComputerChoice(){
+function geAIChoice(){
     let choice= Math.random();      //Will return a value greater than or equal to 0 and less than 1
 
     if(choice <(1/3)){
@@ -16,7 +16,7 @@ function getComputerChoice(){
     return "scissors";
 }
 
-function getHumanChoice(){
+function getPlayerChoice(){
     //const prompt = require("prompt-sync")();
     let choice =prompt("Please enter a valid choice (Rock, Paper, Scissors): ");
 
@@ -32,45 +32,45 @@ function getHumanChoice(){
     return "Invalid Choice";
 }
 
-function playRound(humanChoice, computerChoice){
+function playRound(playerChoice, AIChoice){
     let results= document.querySelector(".score #results");
-    if(humanChoice===computerChoice){
+    if(playerChoice===AIChoice){
         tie++;
-        results.textContent= `I'ts a draw both players chose ${humanChoice}!`;
+        results.textContent= `I'ts a draw both players chose ${playerChoice}!`;
         document.querySelector(".score #tie").textContent= `Ties: ${tie}`;
 
     }
-    else if(humanChoice=== "Invalid Choice"){
-        computerScore++;
-        results.textContent= `Player entered an invalid choice: ${humanChoice}. You Lose!`;
-        document.querySelector(".score #computer").textContent= `Computer Score: ${computerScore}`;
+    else if(playerChoice=== "Invalid Choice"){
+        AI++;
+        results.textContent= `Player entered an invalid choice: ${playerChoice}. You Lose!`;
+        document.querySelector(".score #computer").textContent= `Computer Score: ${AI}`;
 
     }
-    else if((humanChoice=== "rock" && computerChoice== "scissors") || 
-            (humanChoice=== "paper" && computerChoice== "rock") || 
-            (humanChoice=== "scissors" && computerChoice== "paper")){
-        humanScore ++;
-        results.textContent= `You win ${humanChoice} beats ${computerChoice}!`;
-        document.querySelector(".score #human").textContent= `Human Score: ${humanScore}`;
+    else if((playerChoice=== "rock" && AIChoice== "scissors") || 
+            (playerChoice=== "paper" && AIChoice== "rock") || 
+            (playerChoice=== "scissors" && AIChoice== "paper")){
+        player ++;
+        results.textContent= `You win ${playerChoice} beats ${AIChoice}!`;
+        document.querySelector(".score #human").textContent= `Human Score: ${player}`;
     }
     else{
-        computerScore++;
-        results.textContent= `You lose ${computerChoice} beats ${humanChoice}!`;
-        document.querySelector(".score #computer").textContent= `Computer Score: ${computerScore}`;
+        AI++;
+        results.textContent= `You lose ${AIChoice} beats ${playerChoice}!`;
+        document.querySelector(".score #computer").textContent= `Computer Score: ${AI}`;
     }
 }
 
 
 function playGame(){
     for(let i=0; i< numberOfRounds; i++){
-        playRound(getHumanChoice(), getComputerChoice());
+        playRound(getPlayerChoice(), geAIChoice());
     }
     
     console.log("Final Results: \n");
 
     console.log(`After ${numberOfRounds} round.`);
-    console.log("Human Scored: " + humanScore);
-    console.log("Computer Score: "+ computerScore);
+    console.log("Human Scored: " + player);
+    console.log("Computer Score: "+ AI);
     console.log(`Draws/ Ties: ${tie}`);
 }
 function finalResults(){
@@ -81,11 +81,11 @@ function finalResults(){
     final.appendChild(paragraph);
 
     paragraph= document.createElement("p");
-    paragraph.textContent= `Human Scored: ${humanScore}`;
+    paragraph.textContent= `Human Scored: ${player}`;
     final.appendChild(paragraph);
 
     paragraph= document.createElement("p");
-    paragraph.textContent= `Computer Score: ${computerScore}`;
+    paragraph.textContent= `Computer Score: ${AI}`;
     final.appendChild(paragraph);
 
     paragraph= document.createElement("p");
@@ -97,8 +97,8 @@ function finalResults(){
 let button= document.querySelectorAll(".container button");
 button.forEach((ele)=>{
     ele.addEventListener("click", () => {
-        playRound(ele.id, getComputerChoice());
-        if((humanScore+ computerScore+ tie)==numberOfRounds){
+        playRound(ele.id, geAIChoice());
+        if((player+ AI+ tie)==numberOfRounds){
             finalResults();
         }
     });        

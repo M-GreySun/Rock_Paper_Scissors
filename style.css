@@ -1,8 +1,11 @@
-body{
+*{
     box-sizing: border-box; 
     padding: 0px;
     margin: 0px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+body{
+    margin:10px 0px;
 }
 h1{
     color: rgb(9, 126, 9);
@@ -13,20 +16,21 @@ h1{
 
 #choice{
     font: 400px;
-    padding: 20px;
     margin: 100px;
     font-size: 100px;
-
+    border-radius: 50px;
+}
+.input{
+    justify-content: space-around;
 }
 
 .input, .score{
     display: flex;
-    
-    justify-content: center;
 }
 
 .score{
-    gap:50px
+    gap:50px;
+    justify-content: center;
 }
 #scoreValue{
      border: double blue 10px;
@@ -50,4 +54,18 @@ h1{
     padding: 10px;
     gap: 10px;
     border: double green 5px;
+}
+
+.endGame{
+    display: flex;
+    justify-content: space-around;
+}
+#actions{
+    height: 50px;
+    width: 150px;
+    font-size: 35px;
+    font-weight: bold;
+    border-radius: 25px;
+    font-family: 'Times New Roman', Times, serif;
+
 }
