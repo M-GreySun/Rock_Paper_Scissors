@@ -4,30 +4,34 @@ body{
     margin: 0px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+h1{
+    color: rgb(9, 126, 9);
+    text-align: center;
+    font-size: 75px;
+    margin-bottom: 100px;
+}
 
-button{
+#choice{
     font: 400px;
-    background-color: rgb(25, 38, 123);
-    color: whitesmoke;
     padding: 20px;
     margin: 100px;
-    border-radius: 10px;
+    font-size: 100px;
+
 }
 
-.container, .score{
+.input, .score{
     display: flex;
+    
     justify-content: center;
-}
-#playerScore, #compScore{
-
 }
 
 .score{
-    border: double pink 5px;
     gap:50px
 }
+#scoreValue{
+     border: double blue 10px;
+}
 #scoreValue, #scoreCard{
-    border: double blue 10px;
     font-family: Impact;
     font-size: 60px;
     color:rgb(212, 168, 8);
@@ -37,7 +41,6 @@ button{
 #scoreCard{
     display: flex;
     flex-direction: column;
-    border: solid;
     align-items: center;
     color:rgba(137, 43, 226, 0.96);
 }
