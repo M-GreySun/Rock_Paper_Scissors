@@ -19,12 +19,12 @@
         <h1>Rock Paper Scissors</h1>
         <div class="score">
             <div id="scoreCard">
-                <div id="name">Player</div>
-                <div id="scoreValue">0</div>
+                <div >Player</div>
+                <div class="scoreValue" id="player">0</div>
             </div>
             <div id="scoreCard">
-                <div id=name>AI</div>
-                <div id="scoreValue">0</div>
+                <div >AI</div>
+                <div class="scoreValue" id="AI">0</div>
             </div>
         <!---
             <div id="tie">Ties: 0</div>
@@ -32,13 +32,15 @@
         --->
         </div>
         <div class="input">
-            <button id="choice">🪨</button>
-            <button id="choice">📄</button>
-            <button id= choice>✂️</button>
+            <button class="choice" id="rock">🪨</button>
+            <button class="choice" id="paper">📄</button>
+            <button class="choice" id= scissors>✂️</button>
+        </div>
+        <div class="round">
         </div>
         <div class="endGame">
-            <button id="actions">Results</button>
-            <button id="actions">Reset</button>
+            <button class="actions" id="reseult">Results</button>
+            <button class="actions" id="reset">Reset</button>
         </div>
     <!--
         <div class="final">

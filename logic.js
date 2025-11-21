@@ -2,7 +2,7 @@ let player=0;
 let AI= 0;
 let tie=0;
 
-let numberOfRounds=5;
+//let numberOfRounds=5;
 
 function geAIChoice(){
     let choice= Math.random();      //Will return a value greater than or equal to 0 and less than 1
@@ -18,7 +18,7 @@ function geAIChoice(){
 
 function getPlayerChoice(){
     //const prompt = require("prompt-sync")();
-    let choice =prompt("Please enter a valid choice (Rock, Paper, Scissors): ");
+    //let choice =prompt("Please enter a valid choice (Rock, Paper, Scissors): ");
 
     if(choice.toLowerCase("rock")=== "rock"){
         return "rock"
@@ -26,41 +26,43 @@ function getPlayerChoice(){
     else if(choice.toLowerCase("paper")=== "paper"){
         return "paper";
     }
-    else if(choice.toLowerCase("scissors")=== "scissors"){
+    else{
         return "scissors";
     }
-    return "Invalid Choice";
+    //return "Invalid Choice";
 }
 
 function playRound(playerChoice, AIChoice){
-    let results= document.querySelector(".score #results");
+    let results= document.querySelector(".round");
     if(playerChoice===AIChoice){
         tie++;
         results.textContent= `I'ts a draw both players chose ${playerChoice}!`;
-        document.querySelector(".score #tie").textContent= `Ties: ${tie}`;
+        //document.querySelector(".score #tie").textContent= `${tie}`;
 
     }
-    else if(playerChoice=== "Invalid Choice"){
-        AI++;
-        results.textContent= `Player entered an invalid choice: ${playerChoice}. You Lose!`;
-        document.querySelector(".score #computer").textContent= `Computer Score: ${AI}`;
+    //else if(playerChoice=== "Invalid Choice"){
+        //AI++;
+        //results.textContent= `Player entered an invalid choice: ${playerChoice}. You Lose!`;
+        //document.querySelector(".score #computer").textContent= `Computer Score: ${AI}`;
 
-    }
+    //}
     else if((playerChoice=== "rock" && AIChoice== "scissors") || 
             (playerChoice=== "paper" && AIChoice== "rock") || 
             (playerChoice=== "scissors" && AIChoice== "paper")){
         player ++;
         results.textContent= `You win ${playerChoice} beats ${AIChoice}!`;
-        document.querySelector(".score #human").textContent= `Human Score: ${player}`;
+        document.querySelector(".scoreValue #player").textContent= `Human Score: ${player}`;
+        //class="scoreValue" id="player"
     }
     else{
         AI++;
         results.textContent= `You lose ${AIChoice} beats ${playerChoice}!`;
-        document.querySelector(".score #computer").textContent= `Computer Score: ${AI}`;
+        document.querySelector(".scoreValue #AI").textContent= `Computer Score: ${AI}`;
+        //class="scoreValue" id="AI"
     }
 }
 
-
+/*
 function playGame(){
     for(let i=0; i< numberOfRounds; i++){
         playRound(getPlayerChoice(), geAIChoice());
@@ -73,6 +75,7 @@ function playGame(){
     console.log("Computer Score: "+ AI);
     console.log(`Draws/ Ties: ${tie}`);
 }
+*/
 function finalResults(){
     let final= document.querySelector(".final");
     let paragraph= document.createElement("p");
@@ -94,13 +97,14 @@ function finalResults(){
 
 }
 
-let button= document.querySelectorAll(".container button");
+let button= document.querySelectorAll("button");
 button.forEach((ele)=>{
     ele.addEventListener("click", () => {
-        playRound(ele.id, geAIChoice());
-        if((player+ AI+ tie)==numberOfRounds){
-            finalResults();
-        }
+        //playRound(ele.id, geAIChoice());
+        //if((player+ AI+ tie)==numberOfRounds){
+            //finalResults();
+        //}
+        console.log(`The id of the button that was clicked: ${ele.id}`);
     });        
 });
 
