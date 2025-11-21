@@ -89,13 +89,13 @@ function displayResults(){
     paragraph=document.createElement("p");
 
     if(player>AI){
-        paragraph.textContent("\nPlayer Wins!");
+        paragraph.textContent="Player Wins!";
     }
     else if(player<AI){
-        paragraph.textContent("AI Wins!")
+        paragraph.textContent="AI Wins!";
     }
     else{
-        paragraph.textContent("It's a Draw!");
+        paragraph.textContent="It's a Draw!";
     }
     display.append(paragraph);
 }

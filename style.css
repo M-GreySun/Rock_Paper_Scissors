@@ -2,7 +2,6 @@
     box-sizing: border-box; 
     padding: 0px;
     margin: 0px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 body{
     margin:10px 0px;
@@ -58,7 +57,6 @@ h1{
     justify-content: center;
     margin: 50px 0px 50px 0px;
     height: 150px;
-    border: solid 
 }
 .results{
     display: flex;
