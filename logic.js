@@ -51,13 +51,13 @@ function playRound(playerChoice, AIChoice){
             (playerChoice=== "scissors" && AIChoice== "paper")){
         player ++;
         results.textContent= `You win ${playerChoice} beats ${AIChoice}!`;
-        document.querySelector(".scoreValue #player").textContent= `Human Score: ${player}`;
+        document.querySelector(".scoreValue#player").textContent= `${player}`;
         //class="scoreValue" id="player"
     }
     else{
         AI++;
         results.textContent= `You lose ${AIChoice} beats ${playerChoice}!`;
-        document.querySelector(".scoreValue #AI").textContent= `Computer Score: ${AI}`;
+        document.querySelector(".scoreValue#AI").textContent= `${AI}`;
         //class="scoreValue" id="AI"
     }
 }
@@ -104,6 +104,16 @@ button.forEach((ele)=>{
         //if((player+ AI+ tie)==numberOfRounds){
             //finalResults();
         //}
+        if(ele.id !="result" && ele.id != "reset"){
+            playRound(ele.id, geAIChoice());
+        }
+        else if(ele.id =="reset"){
+            player=0;
+            AI= 0;
+            tie=0;
+            document.querySelector(".scoreValue#player").textContent= `${player}`;
+            document.querySelector(".scoreValue#AI").textContent= `${player}`;
+        }
         console.log(`The id of the button that was clicked: ${ele.id}`);
     });        
 });
