@@ -67,26 +67,23 @@ function resetGame(){
 
 }
 function displayResults(){
+
     let display= document.querySelector(".results");
+    display.setAttribute("style", "visibility: visible;");
     display.textContent="";
+
+    if(player==0 && AI==0 && tie==0){
+        display.textContent= "You have to play the game first.";
+        return;
+    }
+
     let paragraph= document.createElement("p");
 
     paragraph.textContent= `After ${player+ AI+ tie} round the final results are as follows: `;
     display.appendChild(paragraph);
 
-    paragraph= document.createElement("p");
-    paragraph.textContent= `Human Scored: ${player}`;
-    display.appendChild(paragraph);
-
-    paragraph= document.createElement("p");
-    paragraph.textContent= `Computer Score: ${AI}`;
-    display.appendChild(paragraph);
-
-    paragraph= document.createElement("p");
-    paragraph.textContent= `Draws/ Ties: ${tie}`;
-    display.appendChild(paragraph);
-
     paragraph=document.createElement("p");
+    paragraph.setAttribute("style", "margin-top: 20px");
 
     if(player>AI){
         paragraph.textContent="Player Wins!";
